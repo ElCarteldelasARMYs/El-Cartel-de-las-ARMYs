@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Acceso · El Cártel</title>
+<style>
+body{margin:0;background:#08060b;color:white;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center}
+.box{width:85%;max-width:400px;padding:30px;border:1px solid #8d63d9;border-radius:15px;background:#100d16}
+h1{color:#c9aaff}
+input{width:90%;padding:13px;margin:15px 0;background:#08060b;color:white;border:1px solid #8d63d9;border-radius:8px}
+button{padding:12px 25px;background:#8d63d9;color:white;border:0;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>⟭⟬ ACCESO RESERVADO ⟭⟬</h1>
+<p>Zona exclusiva de administración</p>
+<input id="pass" type="password" placeholder="Contraseña">
+<br>
+<button onclick="entrar()">ENTRAR AL ARCHIVO</button>
+<p id="error"></p>
+</div>
+
+<script>
+function entrar(){
+  if(document.getElementById('pass').value==='CartelAdmin2026'){
+    location.href='index.html?admin=1';
+  }else{
+    document.getElementById('error').textContent='Acceso denegado.';
+  }
+}
+</script>
+</body>
+</html>

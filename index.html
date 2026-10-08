@@ -923,9 +923,18 @@ footer {
 }
 
 </style>
+
+<style id="ADMIN_MODE_CARTEL">
+body.admin-mode .admin-only{display:block!important;}
+body.admin-mode .admin-only-actions,
+body.admin-mode .rank-actions,
+body.admin-mode .news-actions,
+body.admin-mode .ranking-delete{display:block!important;}
+body.admin-mode .news-actions{margin-top:15px;}
+</style>
 </head>
 
-<body>
+<body id="ADMIN_MODE_CARTEL">
 
 <header id="inicio">
   <div>
@@ -3149,6 +3158,12 @@ addButton.addEventListener(
 mostrar();
 
 })();
+</script>
+
+<script>
+if(new URLSearchParams(location.search).get('admin')==='1'){
+  document.body.classList.add('admin-mode');
+}
 </script>
 </body>
 </html>
