@@ -1,0 +1,3155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Cártel de las Armys</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #08060b;
+  color: #eee7f5;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at center, #32104f 0%, #140b1d 35%, #08060b 75%);
+  border-bottom: 1px solid #6f4a88;
+}
+
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(30px, 8vw, 65px);
+  letter-spacing: 4px;
+  color: #d8b4fe;
+  text-shadow: 0 0 25px #7e3fa3;
+}
+
+.subtitle {
+  margin-top: 18px;
+  color: #bda8c9;
+  letter-spacing: 3px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.line {
+  width: 100px;
+  height: 1px;
+  background: #b997d0;
+  margin: 25px auto;
+}
+
+.enter {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 13px 28px;
+  border: 1px solid #9d6abb;
+  color: #eadcff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.enter:hover {
+  background: #5c267c;
+  box-shadow: 0 0 25px #6f328f;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8, 6, 11, 0.95);
+  border-bottom: 1px solid #291735;
+  text-align: center;
+  padding: 16px 10px;
+  backdrop-filter: blur(10px);
+}
+
+nav a {
+  color: #cbb4d8;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  color: #d8b4fe;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 70px 20px;
+}
+
+section {
+  margin-bottom: 65px;
+}
+
+.label {
+  color: #a77bbd;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 30px;
+  color: #eee1f7;
+  margin-bottom: 15px;
+}
+
+.description {
+  color: #a99caf;
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.card {
+  background: linear-gradient(145deg, #151019, #0e0b12);
+  border: 1px solid #302039;
+  padding: 28px;
+  min-height: 150px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #81519b;
+  box-shadow: 0 10px 30px rgba(101, 47, 129, 0.2);
+}
+
+.card span {
+  font-size: 24px;
+}
+
+.card h3 {
+  font-family: 'Cinzel', serif;
+  color: #d5b5e5;
+  margin: 15px 0 8px;
+}
+
+.card p {
+  color: #928799;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.secret {
+  border-left: 2px solid #80519a;
+  padding: 25px;
+  background: #110c16;
+}
+
+.secret p {
+  color: #b9aabd;
+  line-height: 1.8;
+}
+
+footer {
+  border-top: 1px solid #291735;
+  text-align: center;
+  padding: 35px 20px;
+  color: #75667d;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.music-button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  border: 1px solid #8d6aff;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 12px;
+  transition: .3s;
+}
+.music-button:hover {
+  background: #6d45d9;
+}
+</style>
+
+<style>
+.ranking-box {
+  max-width: 700px;
+  margin: 35px auto 0;
+  border: 1px solid rgba(150, 100, 220, .25);
+  background: rgba(255,255,255,.025);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.ranking-row {
+  display: grid;
+  grid-template-columns: 45px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.ranking-row:last-child { border-bottom: none; }
+.ranking-row strong { letter-spacing: 1px; }
+.ranking-row b { color: #b99cff; }
+</style>
+
+<style>
+.admin-ranking {
+  max-width: 700px;
+  margin: 25px auto 0;
+  padding: 22px;
+  border: 1px solid rgba(150,100,220,.25);
+  background: rgba(255,255,255,.02);
+  border-radius: 12px;
+  text-align: center;
+}
+.admin-ranking h3 {
+  margin-bottom: 18px;
+}
+.admin-ranking input {
+  width: 100%;
+  margin: 6px 0;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 8px;
+  background: #100d16;
+  color: white;
+}
+.admin-ranking button {
+  margin-top: 10px;
+  padding: 12px 18px;
+  border: 1px solid #8d63d9;
+  border-radius: 8px;
+  background: transparent;
+  color: #c9aaff;
+  cursor: pointer;
+}
+.admin-ranking button:hover {
+  background: rgba(141,99,217,.15);
+}
+</style>
+
+<style>
+.rank-actions {
+  display: flex;
+  gap: 6px;
+}
+.rank-actions button {
+  border: 1px solid rgba(255,255,255,.15);
+  background: transparent;
+  border-radius: 6px;
+  padding: 5px 7px;
+  cursor: pointer;
+}
+</style>
+
+<style>
+.news-list{max-width:800px;margin:35px auto}
+.news-card{padding:24px;margin-bottom:15px;border:1px solid rgba(150,100,220,.25);background:rgba(255,255,255,.025);border-radius:12px}
+.news-card h3{color:#c9aaff;margin-bottom:10px}
+.news-card p{line-height:1.7}
+.news-card small{display:block;margin-top:12px;opacity:.55}
+.news-actions{margin-top:15px}
+.news-actions button{border:1px solid rgba(255,255,255,.15);background:transparent;color:white;border-radius:6px;padding:6px 9px}
+.news-admin{max-width:800px;margin:25px auto;padding:22px;border:1px solid rgba(150,100,220,.25);border-radius:12px;text-align:center}
+.news-admin input,.news-admin textarea{width:100%;margin:6px 0;padding:12px;border:1px solid rgba(255,255,255,.15);border-radius:8px;background:#100d16;color:white;font-family:inherit}
+.news-admin textarea{min-height:120px;resize:vertical}
+.news-admin button{margin-top:10px;padding:12px 18px;border:1px solid #8d63d9;border-radius:8px;background:transparent;color:#c9aaff}
+</style>
+
+<style>
+.staff-grid{
+  max-width:800px;
+  margin:35px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.staff-card{
+  padding:30px 22px;
+  text-align:center;
+  border:1px solid rgba(150,100,220,.25);
+  background:rgba(255,255,255,.025);
+  border-radius:12px;
+  transition:.3s;
+}
+.staff-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(190,150,255,.55);
+}
+.staff-icon{
+  font-size:32px;
+  color:#c9aaff;
+  margin-bottom:15px;
+}
+.staff-card h3{
+  letter-spacing:2px;
+  margin-bottom:7px;
+}
+.staff-card span{
+  font-size:11px;
+  letter-spacing:2px;
+  color:#b99cff;
+}
+.staff-card p{
+  margin-top:15px;
+  line-height:1.6;
+  opacity:.7;
+}
+</style>
+
+<style id="trivia-styles">
+.trivia-levels {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:20px 0;
+}
+
+.trivia-level {
+  background:#100b17;
+  color:#d8c7e8;
+  border:1px solid rgba(180,150,220,.35);
+  padding:11px 15px;
+  border-radius:6px;
+  font-family:Montserrat,sans-serif;
+  font-size:11px;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.trivia-level:hover:not(.locked) {
+  border-color:#b69ad5;
+  transform:translateY(-2px);
+}
+
+.trivia-level.active {
+  background:#251532;
+  border-color:#b69ad5;
+  color:#fff;
+}
+
+.trivia-level.locked {
+  opacity:.4;
+  cursor:not-allowed;
+}
+
+.trivia-box {
+  max-width:760px;
+  margin:25px auto 0;
+  padding:28px;
+  background:linear-gradient(145deg,#100b15,#0b080e);
+  border:1px solid rgba(170,135,205,.25);
+  border-radius:8px;
+  box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+#trivia-status {
+  color:#bda4d8;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:8px;
+}
+
+#trivia-progress {
+  color:#777;
+  font-size:12px;
+  margin-bottom:25px;
+}
+
+#trivia-question {
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-family:Cinzel,serif;
+  font-size:20px;
+  line-height:1.5;
+  color:#f4eef8;
+  margin-bottom:25px;
+}
+
+#trivia-options {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.trivia-option {
+  background:#0d0912;
+  color:#ddd;
+  border:1px solid rgba(180,150,220,.22);
+  padding:14px;
+  border-radius:6px;
+  cursor:pointer;
+  font-family:Montserrat,sans-serif;
+  transition:.25s;
+}
+
+.trivia-option:hover {
+  border-color:#b69ad5;
+  background:#181020;
+}
+
+.trivia-option.correct {
+  border-color:#70c48a;
+  background:rgba(70,150,90,.13);
+  color:#9ce0b0;
+}
+
+.trivia-option.wrong {
+  border-color:#b85b67;
+  background:rgba(150,50,65,.13);
+  color:#e49aa4;
+}
+
+.trivia-option:disabled {
+  cursor:default;
+}
+
+.trivia-bottom {
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  margin-top:22px;
+  color:#9c8ca9;
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+#trivia-result {
+  text-align:right;
+}
+
+.trivia-main-btn {
+  width:100%;
+  margin-top:25px;
+  padding:14px;
+  background:#20122d;
+  color:#eee;
+  border:1px solid #80649a;
+  border-radius:6px;
+  font-family:Montserrat,sans-serif;
+  letter-spacing:2px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.trivia-main-btn:hover {
+  background:#2d1940;
+  border-color:#b69ad5;
+}
+
+@media(max-width:600px) {
+  #trivia-options {
+    grid-template-columns:1fr;
+  }
+
+  .trivia-box {
+    padding:20px;
+  }
+
+  #trivia-question {
+    font-size:17px;
+  }
+
+  .trivia-level {
+    flex:1 1 45%;
+  }
+}
+</style>
+
+<style id="quien-soy-styles">
+
+.qs-levels {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:20px 0;
+}
+
+.qs-level {
+  background:#100b17;
+  color:#d8c7e8;
+  border:1px solid rgba(180,150,220,.35);
+  padding:11px 15px;
+  border-radius:6px;
+  font-family:Montserrat,sans-serif;
+  font-size:11px;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.qs-level:hover:not(.locked) {
+  border-color:#b69ad5;
+  transform:translateY(-2px);
+}
+
+.qs-level.active {
+  background:#251532;
+  border-color:#b69ad5;
+  color:#fff;
+}
+
+.qs-level.locked {
+  opacity:.4;
+  cursor:not-allowed;
+}
+
+.qs-box {
+  max-width:760px;
+  margin:25px auto 0;
+  padding:28px;
+  background:linear-gradient(145deg,#100b15,#0b080e);
+  border:1px solid rgba(170,135,205,.25);
+  border-radius:8px;
+  box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+#qs-status {
+  color:#bda4d8;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:8px;
+}
+
+#qs-progress {
+  color:#777;
+  font-size:12px;
+  margin-bottom:20px;
+}
+
+.qs-case {
+  padding:24px;
+  border:1px solid rgba(180,150,220,.15);
+  background:rgba(255,255,255,.015);
+  border-radius:6px;
+  margin-bottom:20px;
+}
+
+.qs-label {
+  color:#8f789e;
+  font-size:9px;
+  letter-spacing:2px;
+  margin-bottom:15px;
+}
+
+#qs-pista {
+  color:#eee;
+  font-family:Cinzel,serif;
+  font-size:18px;
+  line-height:1.7;
+  text-align:center;
+  min-height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#qs-options {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.qs-option {
+  background:#0d0912;
+  color:#ddd;
+  border:1px solid rgba(180,150,220,.22);
+  padding:14px;
+  border-radius:6px;
+  cursor:pointer;
+  font-family:Montserrat,sans-serif;
+  transition:.25s;
+}
+
+.qs-option:hover {
+  border-color:#b69ad5;
+  background:#181020;
+}
+
+.qs-option.correct {
+  border-color:#70c48a;
+  background:rgba(70,150,90,.13);
+  color:#9ce0b0;
+}
+
+.qs-option.wrong {
+  border-color:#b85b67;
+  background:rgba(150,50,65,.13);
+  color:#e49aa4;
+}
+
+.qs-option:disabled {
+  cursor:default;
+}
+
+.qs-bottom {
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  margin-top:22px;
+  color:#9c8ca9;
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+#qs-result {
+  text-align:right;
+}
+
+.qs-main-btn {
+  width:100%;
+  margin-top:25px;
+  padding:14px;
+  background:#20122d;
+  color:#eee;
+  border:1px solid #80649a;
+  border-radius:6px;
+  font-family:Montserrat,sans-serif;
+  letter-spacing:2px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.qs-main-btn:hover {
+  background:#2d1940;
+  border-color:#b69ad5;
+}
+
+@media(max-width:600px) {
+
+  #qs-options {
+    grid-template-columns:1fr;
+  }
+
+  .qs-box {
+    padding:20px;
+  }
+
+  #qs-pista {
+    font-size:16px;
+  }
+
+  .qs-level {
+    flex:1 1 45%;
+  }
+}
+
+</style>
+
+<style id="los7-styles">
+
+.los7-grid {
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+  margin-top:28px;
+}
+
+.los7-card {
+  position:relative;
+  padding:27px;
+  min-height:250px;
+  background:
+    linear-gradient(145deg,#120c18,#0a080d);
+  border:1px solid rgba(180,150,220,.22);
+  border-radius:7px;
+  overflow:hidden;
+  transition:.3s ease;
+}
+
+.los7-card::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:3px;
+  height:100%;
+  background:linear-gradient(
+    to bottom,
+    rgba(182,154,213,.8),
+    transparent
+  );
+}
+
+.los7-card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(182,154,213,.55);
+  box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.los7-number {
+  color:#66536f;
+  font-size:10px;
+  letter-spacing:3px;
+  margin-bottom:13px;
+}
+
+.los7-name {
+  font-family:Cinzel,serif;
+  font-size:27px;
+  color:#f1eaf5;
+  letter-spacing:2px;
+}
+
+.los7-real {
+  color:#a997b5;
+  font-size:10px;
+  letter-spacing:2px;
+  margin-top:5px;
+}
+
+.los7-role {
+  display:inline-block;
+  margin-top:14px;
+  padding:6px 9px;
+  border:1px solid rgba(180,150,220,.2);
+  color:#bca7c9;
+  font-size:9px;
+  letter-spacing:1.5px;
+}
+
+.los7-card p {
+  color:#9b929f;
+  font-size:12px;
+  line-height:1.7;
+  margin-top:17px;
+}
+
+.los7-date {
+  margin-top:18px;
+  color:#665b6c;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+@media(max-width:700px) {
+  .los7-grid {
+    grid-template-columns:1fr;
+  }
+
+  .los7-card {
+    min-height:auto;
+  }
+}
+
+</style>
+
+<style id="ranking-styles">
+
+.ranking-box {
+  max-width:850px;
+  margin:25px auto 0;
+  background:linear-gradient(145deg,#100b15,#0b080e);
+  border:1px solid rgba(170,135,205,.25);
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.ranking-admin {
+  display:grid;
+  grid-template-columns:1fr 130px auto;
+  gap:10px;
+  padding:20px;
+  border-bottom:1px solid rgba(180,150,220,.12);
+}
+
+.ranking-admin input {
+  background:#0b080e;
+  color:#eee;
+  border:1px solid rgba(180,150,220,.2);
+  padding:12px;
+  border-radius:5px;
+  outline:none;
+  font-family:Montserrat,sans-serif;
+  font-size:12px;
+}
+
+.ranking-admin input:focus {
+  border-color:#8d6da8;
+}
+
+.ranking-admin button {
+  background:#20122d;
+  color:#eee;
+  border:1px solid #80649a;
+  border-radius:5px;
+  padding:12px 15px;
+  cursor:pointer;
+  font-family:Montserrat,sans-serif;
+  font-size:10px;
+  letter-spacing:1px;
+  transition:.25s;
+}
+
+.ranking-admin button:hover {
+  background:#2d1940;
+  border-color:#b69ad5;
+}
+
+.ranking-title,
+.ranking-row {
+  display:grid;
+  grid-template-columns:70px 1fr 110px 90px;
+  align-items:center;
+  gap:10px;
+  padding:15px 20px;
+}
+
+.ranking-title {
+  color:#766681;
+  font-size:9px;
+  letter-spacing:2px;
+  border-bottom:1px solid rgba(180,150,220,.12);
+}
+
+.ranking-row {
+  color:#ddd;
+  border-bottom:1px solid rgba(180,150,220,.08);
+  transition:.25s;
+}
+
+.ranking-row:hover {
+  background:rgba(150,110,180,.05);
+}
+
+.ranking-position {
+  color:#8d7799;
+  font-family:Cinzel,serif;
+}
+
+.ranking-name {
+  font-family:Cinzel,serif;
+  letter-spacing:1px;
+}
+
+.ranking-points {
+  color:#c9b2d9;
+  font-weight:bold;
+}
+
+.ranking-delete {
+  background:transparent;
+  color:#806d87;
+  border:1px solid rgba(180,150,220,.15);
+  padding:7px;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:9px;
+}
+
+.ranking-delete:hover {
+  color:#e49aa4;
+  border-color:#8b5660;
+}
+
+.ranking-row:nth-child(1) .ranking-position {
+  color:#d7c28a;
+}
+
+.ranking-row:nth-child(2) .ranking-position {
+  color:#b9b9c0;
+}
+
+.ranking-row:nth-child(3) .ranking-position {
+  color:#b88762;
+}
+
+#ranking-empty {
+  text-align:center;
+  padding:30px;
+  color:#655b69;
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+@media(max-width:650px) {
+
+  .ranking-admin {
+    grid-template-columns:1fr;
+  }
+
+  .ranking-title,
+  .ranking-row {
+    grid-template-columns:45px 1fr 70px 65px;
+    padding:13px 12px;
+  }
+
+  .ranking-title {
+    font-size:8px;
+  }
+
+  .ranking-name {
+    font-size:12px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="inicio">
+  <div>
+    <div class="logo">EL CÁRTEL<br>DE LAS ARMYS</div>
+    <div class="line"></div>
+    <p class="subtitle">Archivo privado de la comunidad ARMY</p>
+    <a class="enter" href="#bts">ENTRAR AL ARCHIVO</a>
+  </div>
+</header>
+
+<nav>
+  <a href="#inicio">INICIO</a>
+  <a href="#bts">BTS</a>
+  <a href="#dinamicas">DINÁMICAS</a>
+  <a href="#staff">SEGUNDA AL MANDO</a>
+</nav>
+
+<main>
+
+<section id="bts">
+  <div class="label">01 · ARCHIVO PRINCIPAL</div>
+  <h2>BTS</h2>
+  <p class="description">
+    Siete artistas. Una historia. Millones de ARMYs.
+    Este espacio reúne parte del universo que compartimos como comunidad.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <span>🎵</span>
+      <h3>Música</h3>
+      <p>Álbumes, canciones y proyectos individuales.</p>
+    </div>
+
+    <div class="card">
+      <span>👑</span>
+      <h3>Los 7</h3>
+      <p>RM · Jin · SUGA · j-hope · Jimin · V · Jung Kook</p>
+    </div>
+
+    <div class="card">
+      <span>📁</span>
+      <h3>Archivos</h3>
+      <p>Datos, recuerdos y momentos importantes.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="musica">
+  <div class="label">01 · ARCHIVO MUSICAL</div>
+  <h2>Música</h2>
+  <p class="section-text">
+    El archivo musical de BTS: álbumes, eras y canciones que forman parte de nuestra historia ARMY.
+  </p>
+
+  <div class="staff-grid" id="musica-list">
+  <div class="staff-card">
+    <div class="staff-icon">♪</div>
+    <h3>PLAYLIST ARMY 01</h3>
+    <span>PLAYLIST</span>
+    <p>Archivo musical de la comunidad.</p>
+    <a href="https://open.spotify.com/playlist/2uJtmLBVlJXQhFiVqDjcpa?si=WKWjx6-LQVqmC5wWvc1NEg" target="_blank" class="music-button">▶ ESCUCHAR</a>
+  </div>
+
+  <div class="staff-card">
+    <div class="staff-icon">♪</div>
+    <h3>PLAYLIST ARMY 02</h3>
+    <span>PLAYLIST</span>
+    <p>Selección musical para el archivo del Cártel.</p>
+    <a href="https://open.spotify.com/playlist/3h8nZkbRAVu3xrBU8VykfH?si=n7Phyu8sTk-PnSO4FQKloQ" target="_blank" class="music-button">▶ ESCUCHAR</a>
+  </div>
+
+  <div class="staff-card">
+    <div class="staff-icon">♪</div>
+    <h3>ÁLBUM BTS</h3>
+    <span>ÁLBUM</span>
+    <p>Álbum disponible para escuchar en Spotify.</p>
+    <a href="https://open.spotify.com/album/3ukkRHDHbN8tNRPKsGZR1h?si=jWHUnCIfQT6CvE42uqNJbw" target="_blank" class="music-button">▶ ESCUCHAR</a>
+  </div>
+</div>
+
+  <div class="secret" style="margin-top:30px;">
+    <h3>✦ AÑADIR AL ARCHIVO</h3>
+    <input id="music-title" type="text" placeholder="Nombre del álbum o canción">
+    <input id="music-era" type="text" placeholder="Era o categoría">
+    <textarea id="music-text" placeholder="Descripción"></textarea>
+    <button onclick="addMusic()">AÑADIR AL ARCHIVO</button>
+  </div>
+</section>
+
+<section id="dinamicas">
+  <div class="label">02 · OPERACIONES</div>
+  <h2>Dinámicas</h2>
+  <p class="description">
+    Juegos y actividades para mantener activa nuestra comunidad.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <span>🧠</span>
+      <h3>Trivia BTS</h3>
+      <p>Demuestra cuánto sabes sobre nuestros siete chicos.</p>
+    </div>
+
+    <div class="card">
+      <span>❓</span>
+      <h3>¿Quién soy?</h3>
+      <p>Descubre qué integrante se esconde detrás de las pistas.</p>
+    </div>
+
+    <div class="card">
+      <span>🏆</span>
+      <h3>Ranking</h3>
+      <p>Acumula puntos y sube posiciones.</p>
+    </div>
+  </div>
+
+
+<div id="trivia-bts" class="secret" style="margin-top:30px;">
+<!-- TRIVIA_PLAYER_NAME -->
+<div class="trivia-player-name" style="margin:20px 0;">
+  <input
+    id="trivia-player"
+    type="text"
+    placeholder="Nombre del participante"
+    style="width:100%;max-width:500px;padding:13px;background:#0b080e;color:#eee;border:1px solid rgba(180,150,220,.25);border-radius:5px;outline:none;"
+  >
+</div>
+
+  <h3>✦ TRIVIA BTS · ARCHIVO DE OPERACIONES</h3>
+
+  <div id="trivia-levels">
+    <button onclick="selectTriviaLevel(0)">NIVEL 1 · RECLUTA</button>
+    <button onclick="selectTriviaLevel(1)">NIVEL 2 · AGENTE</button>
+    <button onclick="selectTriviaLevel(2)">NIVEL 3 · OPERATIVO</button>
+    <button onclick="selectTriviaLevel(3)">NIVEL 4 · ÉLITE</button>
+  </div>
+
+  <p id="trivia-status">Selecciona un nivel para comenzar.</p>
+  <p id="trivia-question"></p>
+  <div id="trivia-options"></div>
+  <p id="trivia-score">Puntos: 0</p>
+  <p id="trivia-progress"></p>
+
+  <button onclick="startTriviaLevel()" id="trivia-start" style="display:none;">
+    COMENZAR NIVEL
+  </button>
+</div>
+
+  <p id="trivia-score">Puntos: 0</p>
+  <button onclick="startTrivia()" id="trivia-start">COMENZAR TRIVIA</button>
+</div>
+</section>
+
+
+
+<!-- RANKING_START -->
+<section id="ranking" class="secret" style="margin-top:30px;">
+
+  <div class="section-kicker">05 · CLASIFICACIÓN</div>
+
+  <h2>RANKING DEL CÁRTEL</h2>
+
+  <p class="section-description">
+    Registro de puntos y agentes destacados de la comunidad.
+  </p>
+
+  <div class="ranking-box">
+
+    <div class="ranking-admin">
+
+      <input
+        id="rank-name"
+        type="text"
+        placeholder="Nombre del participante"
+      >
+
+      <input
+        id="rank-points"
+        type="number"
+        min="0"
+        placeholder="Puntos"
+      >
+
+      <button id="rank-add">
+        AÑADIR AL RANKING
+      </button>
+
+    </div>
+
+    <div class="ranking-title">
+      <span>POS.</span>
+      <span>AGENTE</span>
+      <span>PUNTOS</span>
+      <span>ACCIÓN</span>
+    </div>
+
+    <div id="ranking-list"></div>
+
+    <div id="ranking-empty">
+      Aún no hay agentes registrados.
+    </div>
+
+  </div>
+
+</section>
+<!-- RANKING_END -->
+
+
+
+<section id="noticias">
+  <div class="label">05 · COMUNICADOS</div>
+  <h2>Noticias del Cártel</h2>
+  <p class="description">
+    Comunicados, anuncios y novedades importantes de nuestra comunidad.
+  </p>
+
+  <div id="news-list" class="news-list"></div>
+
+  <div class="news-admin">
+    <h3>Panel de comunicados</h3>
+    <input id="news-title" placeholder="Título del comunicado">
+    <textarea id="news-text" placeholder="Escribe el comunicado"></textarea>
+    <button onclick="addNews()">PUBLICAR COMUNICADO</button>
+  </div>
+</section>
+
+<section id="redes">
+  <div class="label">06 · CANALES OFICIALES</div>
+  <h2>Redes Oficiales</h2>
+  <div class="staff-grid">
+
+    <a class="staff-card" href="https://www.tiktok.com/@el.cartel.de.las78" target="_blank">
+      <div class="staff-icon">♪</div>
+      <h3>TIKTOK</h3>
+      <span>@el.cartel.de.las78</span>
+      <p>Contenido oficial de El Cártel de las Armys.</p>
+    </a>
+
+    <a class="staff-card" href="https://chat.whatsapp.com/FdfkK5BrMPP4Q1ZPonNsHN" target="_blank">
+      <div class="staff-icon">◈</div>
+      <h3>EL LOBBY</h3>
+      <span>WHATSAPP</span>
+      <p>Acceso al lobby oficial de la comunidad.</p>
+    </a>
+
+  </div>
+</section>
+
+
+<section id="expedientes">
+  <div class="label">06 · ARCHIVOS RESERVADOS</div>
+  <h2>Expedientes ARMY</h2>
+  <p class="section-text">Información y recuerdos especiales de El Cártel de las Armys.</p>
+
+  <div class="staff-grid" id="expedientes-list"></div>
+
+  <div class="secret" style="margin-top:30px;">
+    <h3>✦ PANEL DE ARCHIVO</h3>
+    <input id="exp-title" type="text" placeholder="Título del expediente">
+    <textarea id="exp-text" placeholder="Contenido del expediente"></textarea>
+    <button onclick="addExpediente()">PUBLICAR EXPEDIENTE</button>
+  </div>
+</section>
+
+<section id="staff">
+  <div class="label">03 · PERSONAL AUTORIZADO</div>
+  <h2>Staff</h2>
+
+  <div class="staff-grid">
+
+  <div class="staff-card">
+    <div class="staff-icon">♛</div>
+    <h3>Sara</h3>
+    <span>PROPIETARIA</span>
+    <p>Administración general de El Cártel de las Armys.</p>
+  </div>
+
+  <div class="staff-card">
+    <div class="staff-icon">◆</div>
+    <h3>Juli</h3>
+    <span>SEGUNDA AL MANDO</span>
+    <p>Administración, organización y coordinación de la comunidad.</p>
+  </div>
+
+</div>
+</section>
+
+
+<!-- TRIVIA_BTS_START -->
+<section id="trivia-bts" class="secret" style="margin-top:30px;">
+  <div class="section-kicker">02 · OPERACIONES</div>
+
+  <h2>TRIVIA BTS</h2>
+
+  <p class="section-description">
+    Pon a prueba tus conocimientos sobre nuestros 7 chicos.
+  </p>
+
+  <div class="trivia-levels">
+    <button class="trivia-level active" data-level="0">RECLUTA</button>
+    <button class="trivia-level locked" data-level="1">AGENTE 🔒</button>
+    <button class="trivia-level locked" data-level="2">OPERATIVO 🔒</button>
+    <button class="trivia-level locked" data-level="3">ÉLITE 🔒</button>
+  </div>
+
+  <div class="trivia-box">
+
+    <div id="trivia-status">
+      NIVEL: RECLUTA
+    </div>
+
+    <div id="trivia-progress">
+      Pregunta 0 de 5
+    </div>
+
+    <div id="trivia-question">
+      Presiona comenzar para iniciar la operación.
+    </div>
+
+    <div id="trivia-options"></div>
+
+    <div class="trivia-bottom">
+      <span id="trivia-score">PUNTOS: 0</span>
+      <span id="trivia-result"></span>
+    </div>
+
+    <button id="trivia-start" class="trivia-main-btn">
+      INICIAR OPERACIÓN
+    </button>
+
+  </div>
+</section>
+<!-- TRIVIA_BTS_END -->
+
+<!-- QUIEN_SOY_START -->
+<section id="quien-soy" class="secret" style="margin-top:30px;">
+
+  <div class="section-kicker">03 · IDENTIDADES</div>
+
+  <h2>¿QUIÉN SOY?</h2>
+
+  <p class="section-description">
+    Analiza las pistas y descubre la identidad antes que los demás agentes.
+  </p>
+
+  <div class="qs-levels">
+    <button class="qs-level active" data-level="0">RECLUTA</button>
+    <button class="qs-level locked" data-level="1">AGENTE 🔒</button>
+    <button class="qs-level locked" data-level="2">OPERATIVO 🔒</button>
+    <button class="qs-level locked" data-level="3">ÉLITE 🔒</button>
+  </div>
+
+  <div class="qs-box">
+
+    <div id="qs-status">NIVEL: RECLUTA</div>
+
+    <div id="qs-progress">
+      Caso 0 de 5
+    </div>
+
+    <div class="qs-case">
+      <div class="qs-label">EXPEDIENTE CONFIDENCIAL</div>
+
+      <div id="qs-pista">
+        Presiona comenzar para abrir el expediente.
+      </div>
+    </div>
+
+    <div id="qs-options"></div>
+
+    <div class="qs-bottom">
+      <span id="qs-score">PUNTOS: 0</span>
+      <span id="qs-result"></span>
+    </div>
+
+    <button id="qs-start" class="qs-main-btn">
+      ABRIR EXPEDIENTE
+    </button>
+
+  </div>
+
+</section>
+<!-- QUIEN_SOY_END -->
+
+<!-- LOS_7_START -->
+<section id="los-7" class="secret" style="margin-top:30px;">
+
+  <div class="section-kicker">04 · ARCHIVO DE LOS 7</div>
+
+  <h2>LOS 7</h2>
+
+  <p class="section-description">
+    Expedientes oficiales de los siete integrantes de BTS.
+  </p>
+
+  <div class="los7-grid">
+
+    <article class="los7-card">
+      <div class="los7-number">01</div>
+      <div class="los7-name">RM</div>
+      <div class="los7-real">KIM NAMJOON</div>
+      <div class="los7-role">LÍDER · RAPERO</div>
+      <p>
+        Líder de BTS y rapero. Reconocido por su liderazgo,
+        composición y amor por el arte y la literatura.
+      </p>
+      <div class="los7-date">12 · 09 · 1994</div>
+    </article>
+
+    <article class="los7-card">
+      <div class="los7-number">02</div>
+      <div class="los7-name">JIN</div>
+      <div class="los7-real">KIM SEOKJIN</div>
+      <div class="los7-role">VOCALISTA</div>
+      <p>
+        Integrante mayor de BTS. Conocido por su personalidad
+        divertida, su voz y el famoso apodo Worldwide Handsome.
+      </p>
+      <div class="los7-date">04 · 12 · 1992</div>
+    </article>
+
+    <article class="los7-card">
+      <div class="los7-number">03</div>
+      <div class="los7-name">SUGA</div>
+      <div class="los7-real">MIN YOONGI</div>
+      <div class="los7-role">RAPERO · PRODUCTOR</div>
+      <p>
+        Rapero, productor y compositor. También desarrolla
+        su carrera solista bajo los nombres SUGA y Agust D.
+      </p>
+      <div class="los7-date">09 · 03 · 1993</div>
+    </article>
+
+    <article class="los7-card">
+      <div class="los7-number">04</div>
+      <div class="los7-name">J-HOPE</div>
+      <div class="los7-real">JUNG HOSEOK</div>
+      <div class="los7-role">RAPERO · BAILARÍN</div>
+      <p>
+        Rapero, bailarín y una de las grandes fuentes de energía
+        de BTS. Destaca por su presencia escénica y creatividad.
+      </p>
+      <div class="los7-date">18 · 02 · 1994</div>
+    </article>
+
+    <article class="los7-card">
+      <div class="los7-number">05</div>
+      <div class="los7-name">JIMIN</div>
+      <div class="los7-real">PARK JIMIN</div>
+      <div class="los7-role">VOCALISTA · BAILARÍN</div>
+      <p>
+        Vocalista y bailarín de BTS. Reconocido por su estilo
+        de baile, su voz y su expresividad sobre el escenario.
+      </p>
+      <div class="los7-date">13 · 10 · 1995</div>
+    </article>
+
+    <article class="los7-card">
+      <div class="los7-number">06</div>
+      <div class="los7-name">V</div>
+      <div class="los7-real">KIM TAEHYUNG</div>
+      <div class="los7-role">VOCALISTA</div>
+      <p>
+        Vocalista de BTS. Conocido por su distintivo tono de voz,
+        su estilo artístico y su trabajo como solista.
+      </p>
+      <div class="los7-date">30 · 12 · 1995</div>
+    </article>
+
+    <article class="los7-card">
+      <div class="los7-number">07</div>
+      <div class="los7-name">JUNGKOOK</div>
+      <div class="los7-real">JEON JUNGKOOK</div>
+      <div class="los7-role">VOCALISTA · MAKNAE</div>
+      <p>
+        Integrante más joven de BTS. Destaca por su voz,
+        baile y versatilidad artística.
+      </p>
+      <div class="los7-date">01 · 09 · 1997</div>
+    </article>
+
+  </div>
+
+</section>
+<!-- LOS_7_END -->
+</main>
+
+<footer>
+  ⟭⟬ EL CÁRTEL DE LAS ARMYS ⟭⟬<br><br>
+  ARCHIVO · COMUNIDAD · ARMY
+</footer>
+
+
+<script>
+let ranking = JSON.parse(localStorage.getItem('cartelRanking')) || [
+  {name:'ARMY 01', points:120},
+  {name:'ARMY 02', points:95},
+  {name:'ARMY 03', points:80}
+];
+
+function showRanking() {
+  ranking.sort((a,b) => b.points - a.points);
+
+  const icons = ['🥇','🥈','🥉'];
+  document.getElementById('ranking-list').innerHTML =
+    ranking.map((army,i) => `
+      <div class="ranking-row">
+        <span>${icons[i] || '🏅'}</span>
+        <strong>${army.name}</strong>
+        <b>${army.points} pts</b>
+        <div class="rank-actions">
+          <button onclick="editArmy(${i})">✏️</button>
+          <button onclick="deleteArmy(${i})">🗑️</button>
+        </div>
+      </div>
+    `).join('');
+
+  localStorage.setItem('cartelRanking', JSON.stringify(ranking));
+}
+
+function addArmy() {
+  const name = document.getElementById('army-name').value.trim();
+  const points = Number(document.getElementById('army-points').value);
+
+  if (!name || isNaN(points)) {
+    alert('Completa el nombre y los puntos.');
+    return;
+  }
+
+  ranking.push({name, points});
+  document.getElementById('army-name').value = '';
+  document.getElementById('army-points').value = '';
+  showRanking();
+}
+
+showRanking();
+</script>
+
+<script>
+function editArmy(index) {
+  const newName = prompt('Nuevo nombre:', ranking[index].name);
+  if (newName === null) return;
+
+  const newPoints = prompt('Nuevos puntos:', ranking[index].points);
+  if (newPoints === null) return;
+
+  if (newName.trim() && !isNaN(Number(newPoints))) {
+    ranking[index].name = newName.trim();
+    ranking[index].points = Number(newPoints);
+    showRanking();
+  }
+}
+
+function deleteArmy(index) {
+  if (confirm('¿Eliminar a ' + ranking[index].name + ' del ranking?')) {
+    ranking.splice(index, 1);
+    showRanking();
+  }
+}
+</script>
+
+<script>
+let news = JSON.parse(localStorage.getItem('cartelNews')) || [];
+
+function showNews(){
+  document.getElementById('news-list').innerHTML = news.map((item,i) => '<article class="news-card"><h3>'+item.title+'</h3><p>'+item.text+'</p><small>'+item.date+'</small><div class="news-actions"><button onclick="deleteNews('+i+')">Eliminar</button></div></article>').join('');
+  localStorage.setItem('cartelNews', JSON.stringify(news));
+}
+
+function addNews(){
+  const title=document.getElementById('news-title').value.trim();
+  const text=document.getElementById('news-text').value.trim();
+
+  if(!title || !text){
+    alert('Completa el titulo y el comunicado.');
+    return;
+  }
+
+  news.unshift({
+    title:title,
+    text:text,
+    date:new Date().toLocaleDateString('es-CO')
+  });
+
+  document.getElementById('news-title').value='';
+  document.getElementById('news-text').value='';
+  showNews();
+}
+
+function deleteNews(index){
+  if(confirm('Eliminar este comunicado')){
+    news.splice(index,1);
+    showNews();
+  }
+}
+
+showNews();
+</script>
+<script>
+let expedientes = JSON.parse(localStorage.getItem('cartelExpedientes')) || [];
+
+function showExpedientes() {
+  const list = document.getElementById('expedientes-list');
+  if (!list) return;
+
+  list.innerHTML = expedientes.map((e, i) => `
+    <div class="staff-card">
+      <div class="staff-icon">◆</div>
+      <h3>${e.title}</h3>
+      <span>EXPEDIENTE ARMY</span>
+      <p>${e.text}</p>
+      <button onclick="deleteExpediente(${i})">ELIMINAR</button>
+    </div>
+  `).join('');
+}
+
+function addExpediente() {
+  const title = document.getElementById('exp-title').value.trim();
+  const text = document.getElementById('exp-text').value.trim();
+
+  if (!title || !text) {
+    alert('Completa el título y el contenido.');
+    return;
+  }
+
+  expedientes.push({ title, text });
+  localStorage.setItem('cartelExpedientes', JSON.stringify(expedientes));
+
+  document.getElementById('exp-title').value = '';
+  document.getElementById('exp-text').value = '';
+
+  showExpedientes();
+}
+
+function deleteExpediente(index) {
+  if (confirm('¿Eliminar este expediente?')) {
+    expedientes.splice(index, 1);
+    localStorage.setItem('cartelExpedientes', JSON.stringify(expedientes));
+    showExpedientes();
+  }
+}
+
+showExpedientes();
+</script>
+<script>
+let musicArchive = JSON.parse(localStorage.getItem('cartelMusic')) || [];
+
+function showMusic() {
+  const list = document.getElementById('musica-list');
+  if (!list) return;
+
+  list.innerHTML = musicArchive.map((m, i) => `
+    <div class="staff-card">
+      <div class="staff-icon">♪</div>
+      <h3>${m.title}</h3>
+      <span>${m.era}</span>
+      <p>${m.text}</p>
+      <button onclick="deleteMusic(${i})">ELIMINAR</button>
+    </div>
+  `).join('');
+}
+
+function addMusic() {
+  const title = document.getElementById('music-title').value.trim();
+  const era = document.getElementById('music-era').value.trim();
+  const text = document.getElementById('music-text').value.trim();
+
+  if (!title || !era || !text) {
+    alert('Completa todos los campos.');
+    return;
+  }
+
+  musicArchive.push({title, era, text});
+  localStorage.setItem('cartelMusic', JSON.stringify(musicArchive));
+
+  document.getElementById('music-title').value = '';
+  document.getElementById('music-era').value = '';
+  document.getElementById('music-text').value = '';
+
+  showMusic();
+}
+
+function deleteMusic(index) {
+  if (confirm('¿Eliminar este archivo musical?')) {
+    musicArchive.splice(index, 1);
+    localStorage.setItem('cartelMusic', JSON.stringify(musicArchive));
+    showMusic();
+  }
+}
+
+showMusic();
+</script>
+
+
+<script>
+const trivia = [
+ {q:"¿En qué año debutó BTS?",o:["2011","2012","2013","2014"],a:2},
+ {q:"RM es el líder de BTS.",o:["Verdadero","Falso"],a:0},
+ {q:"¿Cuál es el nombre real de SUGA?",o:["Min Yoongi","Kim Namjoon","Jung Hoseok","Park Jimin"],a:0},
+ {q:"Jin es el miembro mayor de BTS.",o:["Verdadero","Falso"],a:0},
+ {q:"¿Quién es conocido como el Golden Maknae?",o:["Jimin","V","Jungkook","Jin"],a:2},
+ {q:"BTS tiene siete integrantes.",o:["Verdadero","Falso"],a:0},
+ {q:"¿Cuál de estos es un álbum de BTS?",o:["Map of the Soul: 7","The Dream Chapter","Formula of Love","I Am"],a:0},
+ {q:"j-hope forma parte del rap line.",o:["Verdadero","Falso"],a:0},
+ {q:"¿Quién es conocido como Worldwide Handsome?",o:["Jin","V","RM","SUGA"],a:0},
+ {q:"BTS debutó bajo Big Hit Entertainment.",o:["Verdadero","Falso"],a:0}
+];
+
+let triviaIndex=0;
+let triviaScore=0;
+
+function startTrivia(){
+ triviaIndex=0;
+ triviaScore=0;
+ document.getElementById("trivia-start").style.display="none";
+ showTrivia();
+}
+
+function showTrivia(){
+ const q=trivia[triviaIndex];
+ document.getElementById("trivia-question").textContent=q.q;
+ document.getElementById("trivia-score").textContent="Puntos: "+triviaScore;
+
+ const box=document.getElementById("trivia-options");
+ box.innerHTML="";
+
+ q.o.forEach((op,i)=>{
+   const b=document.createElement("button");
+   b.textContent=op;
+   b.style.margin="6px";
+   b.onclick=()=>answerTrivia(i);
+   box.appendChild(b);
+ });
+}
+
+function answerTrivia(answer){
+ const q=trivia[triviaIndex];
+
+ if(answer===q.a){
+   triviaScore+=10;
+   alert("✓ RESPUESTA CORRECTA +10");
+ }else{
+   alert("✕ RESPUESTA INCORRECTA");
+ }
+
+ triviaIndex++;
+
+ if(triviaIndex<trivia.length){
+   showTrivia();
+ }else{
+   document.getElementById("trivia-question").textContent=
+   "OPERACIÓN COMPLETADA — Puntuación final: "+triviaScore+"/100";
+   document.getElementById("trivia-options").innerHTML="";
+   document.getElementById("trivia-score").textContent=
+   "Rango ARMY: "+(triviaScore>=80?"ELITE":triviaScore>=50?"AGENTE":"RECLUTA");
+   document.getElementById("trivia-start").style.display="inline-block";
+   document.getElementById("trivia-start").textContent="JUGAR DE NUEVO";
+ }
+}
+</script>
+
+<script>
+const levelsTrivia = [
+
+[
+{q:"¿En qué año debutó BTS?",o:["2011","2012","2013","2014"],a:2},
+{q:"¿Cuántos integrantes tiene BTS?",o:["5","6","7","8"],a:2},
+{q:"¿Quién es el líder de BTS?",o:["Jin","RM","SUGA","Jimin"],a:1},
+{q:"Jin es el integrante mayor de BTS.",o:["Verdadero","Falso"],a:0},
+{q:"¿Cuál es el nombre real de SUGA?",o:["Min Yoongi","Kim Namjoon","Jung Hoseok","Kim Taehyung"],a:0},
+{q:"Jungkook es el maknae de BTS.",o:["Verdadero","Falso"],a:0},
+{q:"¿Cuál pertenece a BTS?",o:["j-hope","Woozi","Felix","Bang Chan"],a:0},
+{q:"¿De qué empresa debutó originalmente BTS?",o:["SM","JYP","Big Hit Entertainment","YG"],a:2},
+{q:"Jimin forma parte de BTS.",o:["Verdadero","Falso"],a:0},
+{q:"¿Cuál es el nombre real de RM?",o:["Kim Namjoon","Kim Seokjin","Park Jimin","Jung Hoseok"],a:0}
+],
+
+[
+{q:"¿Cuál de estos es un álbum de BTS?",o:["Map of the Soul: 7","Formula of Love","The Dream Chapter: Magic","I Am WHO"],a:0},
+{q:"¿Quién interpreta principalmente 'Lie'?",o:["Jin","Jimin","V","RM"],a:1},
+{q:"'Spring Day' pertenece a la discografía de BTS.",o:["Verdadero","Falso"],a:0},
+{q:"¿Cuál es el nombre real de j-hope?",o:["Jung Hoseok","Kim Hoseok","Jung Seokjin","Park Hoseok"],a:0},
+{q:"¿Quién es conocido como Worldwide Handsome?",o:["Jin","V","RM","Jungkook"],a:0},
+{q:"¿Cuál de estas canciones es de BTS?",o:["DNA","Queencard","God's Menu","Super"],a:0},
+{q:"V forma parte de la línea vocal de BTS.",o:["Verdadero","Falso"],a:0},
+{q:"¿Cuál es el nombre real de Jimin?",o:["Park Jimin","Kim Jimin","Jeon Jimin","Jung Jimin"],a:0},
+{q:"¿Quién lanzó el álbum 'Jack In The Box'?",o:["RM","j-hope","Jimin","Jin"],a:1},
+{q:"BTS tiene canciones en coreano e inglés.",o:["Verdadero","Falso"],a:0}
+],
+
+[
+{q:"¿Qué álbum incluye 'Black Swan'?",o:["Map of the Soul: 7","BE","Wings","Love Yourself: Tear"],a:0},
+{q:"¿Quién lanzó el álbum 'D-DAY'?",o:["RM","SUGA","Jin","V"],a:1},
+{q:"'The Most Beautiful Moment in Life' es una serie de álbumes de BTS.",o:["Verdadero","Falso"],a:0},
+{q:"¿Cuál fue el primer sencillo en inglés de BTS?",o:["Butter","Dynamite","Permission to Dance","Life Goes On"],a:1},
+{q:"¿Quién lanzó 'Indigo'?",o:["RM","Jimin","Jungkook","SUGA"],a:0},
+{q:"¿Cuál de estos álbumes pertenece a la era Love Yourself?",o:["Love Yourself: Tear","Dark & Wild","BE","O!RUL8,2?"],a:0},
+{q:"'ON' aparece en Map of the Soul: 7.",o:["Verdadero","Falso"],a:0},
+{q:"¿Cuál fue el nombre del álbum lanzado en 2020 que incluye 'Life Goes On'?",o:["BE","Wings","Face","Proof"],a:0},
+{q:"¿Quién lanzó el álbum 'FACE'?",o:["Jimin","Jin","V","RM"],a:0},
+{q:"'Butter' fue lanzada como canción en inglés.",o:["Verdadero","Falso"],a:0}
+],
+
+[
+{q:"¿Cuál es el nombre del álbum antológico de BTS lanzado en 2022?",o:["Proof","BE","Wings","Persona"],a:0},
+{q:"¿Qué canción fue el primer número 1 de BTS en el Billboard Hot 100?",o:["Dynamite","DNA","Butter","Boy With Luv"],a:0},
+{q:"'The Astronaut' es una canción de Jin.",o:["Verdadero","Falso"],a:0},
+{q:"¿Qué miembro lanzó 'Layover'?",o:["V","Jungkook","Jin","RM"],a:0},
+{q:"¿Qué álbum de RM incluye 'Wild Flower'?",o:["Indigo","Mono.","Right Place, Wrong Person","D-2"],a:0},
+{q:"¿Quién lanzó 'GOLDEN'?",o:["Jungkook","Jimin","SUGA","j-hope"],a:0},
+{q:"'Take Two' fue lanzada para celebrar el aniversario de BTS.",o:["Verdadero","Falso"],a:0},
+{q:"¿Cuál de estos es un mixtape/proyecto asociado con j-hope?",o:["Hope World","Mono.","Agust D","Face"],a:0},
+{q:"¿Cuál es el nombre artístico de Min Yoongi?",o:["SUGA","RM","V","Jin"],a:0},
+{q:"BTS debutó con 'No More Dream'.",o:["Verdadero","Falso"],a:0}
+]
+
+];
+
+let unlockedLevels = Number(localStorage.getItem('cartelTriviaUnlocked')) || 1;
+let triviaLevel = 0;
+let triviaQuestions = [];
+let triviaIndex = 0;
+let triviaScore = 0;
+
+function updateTriviaLevels() {
+  const buttons = document.querySelectorAll('#trivia-levels button');
+
+  buttons.forEach((button, index) => {
+    if (index < unlockedLevels) {
+      button.disabled = false;
+      button.textContent = [
+        'NIVEL 1 · RECLUTA',
+        'NIVEL 2 · AGENTE',
+        'NIVEL 3 · OPERATIVO',
+        'NIVEL 4 · ÉLITE'
+      ][index];
+    } else {
+      button.disabled = true;
+      button.textContent = '🔒 NIVEL ' + (index + 1);
+    }
+  });
+}
+
+function selectTriviaLevel(level) {
+  if (level + 1 > unlockedLevels) return;
+
+  triviaLevel = level;
+  document.getElementById('trivia-status').textContent =
+    'Nivel seleccionado: ' +
+    ['RECLUTA','AGENTE','OPERATIVO','ÉLITE'][level];
+
+  document.getElementById('trivia-start').style.display = 'inline-block';
+  document.getElementById('trivia-start').textContent = 'COMENZAR NIVEL';
+  document.getElementById('trivia-question').textContent = '';
+  document.getElementById('trivia-options').innerHTML = '';
+  document.getElementById('trivia-progress').textContent = '';
+}
+
+function startTriviaLevel() {
+  triviaQuestions = [...levelsTrivia[triviaLevel]]
+    .sort(() => Math.random() - 0.5);
+
+  triviaIndex = 0;
+  triviaScore = 0;
+
+  document.getElementById('trivia-start').style.display = 'none';
+  showTriviaQuestion();
+}
+
+function showTriviaQuestion() {
+  const q = triviaQuestions[triviaIndex];
+
+  document.getElementById('trivia-question').textContent = q.q;
+  document.getElementById('trivia-score').textContent =
+    'Puntos: ' + triviaScore;
+
+  document.getElementById('trivia-progress').textContent =
+    'Pregunta ' + (triviaIndex + 1) + ' de ' + triviaQuestions.length;
+
+  const box = document.getElementById('trivia-options');
+  box.innerHTML = '';
+
+  q.o.forEach((option, index) => {
+    const button = document.createElement('button');
+    button.textContent = option;
+    button.style.margin = '6px';
+    button.onclick = () => answerTrivia(index);
+    box.appendChild(button);
+  });
+}
+
+function answerTrivia(answer) {
+  const q = triviaQuestions[triviaIndex];
+
+  if (answer === q.a) {
+    triviaScore += 10;
+  }
+
+  triviaIndex++;
+
+  if (triviaIndex < triviaQuestions.length) {
+    showTriviaQuestion();
+  } else {
+    finishTriviaLevel();
+  }
+}
+
+function finishTriviaLevel() {
+  document.getElementById('trivia-question').textContent =
+    'OPERACIÓN COMPLETADA';
+
+  document.getElementById('trivia-options').innerHTML = '';
+
+  document.getElementById('trivia-score').textContent =
+    'Puntuación: ' + triviaScore + '/100';
+
+  document.getElementById('trivia-progress').textContent =
+    triviaScore >= 80
+      ? 'Rango: ÉLITE'
+      : triviaScore >= 50
+      ? 'Rango: AGENTE'
+      : 'Rango: RECLUTA';
+
+  const playerInput =
+    document.getElementById('trivia-player');
+
+  const playerName =
+    playerInput ? playerInput.value.trim() : '';
+
+  if (playerName && triviaScore > 0) {
+
+    let ranking = [];
+
+    try {
+      ranking = JSON.parse(
+        localStorage.getItem('cartelRanking') || '[]'
+      );
+    } catch {
+      ranking = [];
+    }
+
+    const existente = ranking.find(
+      agente =>
+        agente.nombre.toLowerCase() ===
+        playerName.toLowerCase()
+    );
+
+    if (existente) {
+      existente.puntos += triviaScore;
+    } else {
+      ranking.push({
+        nombre: playerName,
+        puntos: triviaScore
+      });
+    }
+
+    localStorage.setItem(
+      'cartelRanking',
+      JSON.stringify(ranking)
+    );
+
+    document.getElementById('trivia-status').textContent =
+      '✓ Puntos enviados al Ranking.';
+  }
+
+  if (triviaLevel + 1 === unlockedLevels && unlockedLevels < 4) {
+    unlockedLevels++;
+    localStorage.setItem('cartelTriviaUnlocked', unlockedLevels);
+
+    document.getElementById('trivia-status').textContent =
+      '🔓 ¡Nuevo nivel desbloqueado!';
+  } else if (!playerName) {
+
+    document.getElementById('trivia-status').textContent =
+      'Nivel completado. Escribe tu nombre para registrar puntos.';
+
+  } else {
+
+    document.getElementById('trivia-status').textContent =
+      '✓ Puntos enviados al Ranking.';
+  }
+
+  document.getElementById('trivia-start').style.display = 'inline-block';
+  document.getElementById('trivia-start').textContent = 'JUGAR DE NUEVO';
+
+  updateTriviaLevels();
+}
+
+updateTriviaLevels();
+</script>
+
+
+<script id="trivia-script">
+(() => {
+
+const niveles = [
+  {
+    nombre: "RECLUTA",
+    preguntas: [
+      {
+        pregunta: "¿En qué año debutó BTS?",
+        opciones: ["2011", "2012", "2013", "2014"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Cuántos integrantes tiene BTS?",
+        opciones: ["5", "6", "7", "8"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Quién es el líder de BTS?",
+        opciones: ["Jin", "RM", "SUGA", "J-Hope"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Quién es el integrante mayor de BTS?",
+        opciones: ["Jungkook", "Jimin", "Jin", "RM"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Cuál es el nombre real de SUGA?",
+        opciones: ["Kim Namjoon", "Min Yoongi", "Jung Hoseok", "Kim Taehyung"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Quién es conocido como el maknae de BTS?",
+        opciones: ["Jimin", "Jungkook", "V", "J-Hope"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Cuál de estos integrantes es J-Hope?",
+        opciones: ["Jung Hoseok", "Kim Seokjin", "Park Jimin", "Kim Namjoon"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Cuál era el nombre de la empresa de BTS al debutar?",
+        opciones: ["SM Entertainment", "YG Entertainment", "Big Hit Entertainment", "JYP Entertainment"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Cuál de estos nombres pertenece a un integrante de BTS?",
+        opciones: ["Park Jimin", "Lee Felix", "Choi Soobin", "Hwang Hyunjin"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Cuál es el nombre real de RM?",
+        opciones: ["Kim Namjoon", "Kim Taehyung", "Kim Seokjin", "Jung Hoseok"],
+        correcta: 0
+      }
+    ]
+  },
+
+  {
+    nombre: "AGENTE",
+    preguntas: [
+      {
+        pregunta: "¿Qué álbum contiene la canción Black Swan?",
+        opciones: ["BE", "Map of the Soul: 7", "Proof", "Love Yourself: Tear"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Qué canción pertenece a Jimin?",
+        opciones: ["Lie", "Daechwita", "Arson", "Wild Flower"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué canción de BTS es conocida por su temática relacionada con la primavera?",
+        opciones: ["Spring Day", "Fire", "DNA", "Idol"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Cuál es el nombre real de J-Hope?",
+        opciones: ["Jung Hoseok", "Min Yoongi", "Kim Namjoon", "Park Jimin"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué integrante utiliza el apodo 'Worldwide Handsome'?",
+        opciones: ["Jin", "V", "RM", "Jungkook"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Cuál de estas canciones pertenece a BTS?",
+        opciones: ["DNA", "God's Menu", "Queencard", "Love Dive"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Quién forma parte de la línea vocal?",
+        opciones: ["V", "RM", "SUGA", "J-Hope"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Cuál es el nombre real de Jimin?",
+        opciones: ["Park Jimin", "Kim Taehyung", "Jeon Jungkook", "Kim Seokjin"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Quién lanzó el álbum Jack In The Box?",
+        opciones: ["J-Hope", "SUGA", "Jimin", "Jin"],
+        correcta: 0
+      },
+      {
+        pregunta: "VERDADERO O FALSO: BTS tiene canciones en coreano e inglés.",
+        opciones: ["Verdadero", "Falso"],
+        correcta: 0
+      }
+    ]
+  },
+
+  {
+    nombre: "OPERATIVO",
+    preguntas: [
+      {
+        pregunta: "¿En qué álbum aparece Black Swan?",
+        opciones: ["Map of the Soul: 7", "BE", "Proof", "Dark & Wild"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué integrante lanzó el álbum D-DAY?",
+        opciones: ["RM", "J-Hope", "SUGA", "Jimin"],
+        correcta: 2
+      },
+      {
+        pregunta: "¿Qué serie de álbumes incluye The Most Beautiful Moment in Life?",
+        opciones: ["Love Yourself", "The Most Beautiful Moment in Life", "Map of the Soul", "Wings"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Cuál fue el primer sencillo completamente en inglés de BTS?",
+        opciones: ["Butter", "Dynamite", "Permission to Dance", "Boy With Luv"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Quién lanzó el álbum Indigo?",
+        opciones: ["RM", "Jin", "V", "J-Hope"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué álbum pertenece a la serie Love Yourself?",
+        opciones: ["Love Yourself: Tear", "BE", "Indigo", "D-DAY"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿En qué álbum aparece la canción ON?",
+        opciones: ["Map of the Soul: 7", "BE", "Proof", "Wings"],
+        correcta: 0
+      },
+      {
+        pregunta: "VERDADERO O FALSO: Life Goes On pertenece al álbum BE.",
+        opciones: ["Verdadero", "Falso"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué integrante lanzó el álbum FACE?",
+        opciones: ["Jimin", "Jungkook", "V", "Jin"],
+        correcta: 0
+      },
+      {
+        pregunta: "VERDADERO O FALSO: Butter es una canción de BTS interpretada en inglés.",
+        opciones: ["Verdadero", "Falso"],
+        correcta: 0
+      }
+    ]
+  },
+
+  {
+    nombre: "ÉLITE",
+    preguntas: [
+      {
+        pregunta: "¿Qué tipo de álbum es Proof dentro de la discografía de BTS?",
+        opciones: ["Álbum recopilatorio/antología", "Miniálbum", "Álbum debut", "Single"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué canción llevó a BTS a su primer número 1 en Billboard Hot 100?",
+        opciones: ["DNA", "Dynamite", "Butter", "Boy With Luv"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Qué integrante lanzó The Astronaut?",
+        opciones: ["Jin", "RM", "V", "Jungkook"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué integrante lanzó Layover?",
+        opciones: ["Jimin", "V", "Jin", "SUGA"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Quién lanzó Indigo?",
+        opciones: ["RM", "J-Hope", "SUGA", "Jungkook"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué integrante lanzó el álbum GOLDEN?",
+        opciones: ["Jungkook", "Jimin", "V", "Jin"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué canción fue lanzada para celebrar el aniversario de BTS en 2023?",
+        opciones: ["Take Two", "Yet To Come", "Life Goes On", "For Youth"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Qué integrante lanzó el álbum Hope World?",
+        opciones: ["J-Hope", "RM", "SUGA", "Jin"],
+        correcta: 0
+      },
+      {
+        pregunta: "VERDADERO O FALSO: Min Yoongi es el nombre real de SUGA.",
+        opciones: ["Verdadero", "Falso"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Cuál fue la canción debut de BTS?",
+        opciones: ["No More Dream", "N.O", "Danger", "Boy In Luv"],
+        correcta: 0
+      }
+    ]
+  }
+];
+
+const TOTAL_POR_NIVEL = 5;
+
+let nivelActual = 0;
+let preguntasPartida = [];
+let preguntaActual = 0;
+let puntos = 0;
+let respondiendo = false;
+
+const nivelGuardado = parseInt(localStorage.getItem("cartelTriviaUnlocked") || "0");
+let nivelDesbloqueado = Math.max(0, Math.min(3, nivelGuardado));
+
+const levels = document.querySelectorAll(".trivia-level");
+const status = document.getElementById("trivia-status");
+const progress = document.getElementById("trivia-progress");
+const question = document.getElementById("trivia-question");
+const options = document.getElementById("trivia-options");
+const score = document.getElementById("trivia-score");
+const result = document.getElementById("trivia-result");
+const start = document.getElementById("trivia-start");
+
+function mezclar(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+function actualizarNiveles() {
+  levels.forEach((btn, i) => {
+    const nombre = niveles[i].nombre;
+
+    if (i <= nivelDesbloqueado) {
+      btn.classList.remove("locked");
+      btn.textContent = nombre;
+    } else {
+      btn.classList.add("locked");
+      btn.textContent = nombre + " 🔒";
+    }
+
+    btn.classList.toggle("active", i === nivelActual);
+  });
+}
+
+function iniciarNivel() {
+  preguntasPartida = mezclar(niveles[nivelActual].preguntas)
+    .slice(0, TOTAL_POR_NIVEL);
+
+  preguntaActual = 0;
+  puntos = 0;
+  respondiendo = false;
+
+  status.textContent = "NIVEL: " + niveles[nivelActual].nombre;
+  score.textContent = "PUNTOS: 0";
+  result.textContent = "";
+
+  start.textContent = "REINICIAR OPERACIÓN";
+
+  mostrarPregunta();
+}
+
+function mostrarPregunta() {
+  if (preguntaActual >= preguntasPartida.length) {
+    terminarNivel();
+    return;
+  }
+
+  const actual = preguntasPartida[preguntaActual];
+
+  progress.textContent =
+    "Pregunta " + (preguntaActual + 1) +
+    " de " + preguntasPartida.length;
+
+  question.textContent = actual.pregunta;
+  options.innerHTML = "";
+  respondiendo = true;
+
+  actual.opciones.forEach((opcion, indice) => {
+    const boton = document.createElement("button");
+
+    boton.className = "trivia-option";
+    boton.textContent = opcion;
+
+    boton.addEventListener("click", () => responder(indice));
+
+    options.appendChild(boton);
+  });
+}
+
+function responder(indice) {
+  if (!respondiendo) return;
+
+  respondiendo = false;
+
+  const actual = preguntasPartida[preguntaActual];
+  const botones = options.querySelectorAll(".trivia-option");
+
+  botones.forEach(b => b.disabled = true);
+
+  if (indice === actual.correcta) {
+    puntos += 10;
+    botones[indice].classList.add("correct");
+    result.textContent = "+10 PUNTOS";
+  } else {
+    botones[indice].classList.add("wrong");
+    botones[actual.correcta].classList.add("correct");
+    result.textContent = "RESPUESTA INCORRECTA";
+  }
+
+  score.textContent = "PUNTOS: " + puntos;
+
+  setTimeout(() => {
+    preguntaActual++;
+    result.textContent = "";
+    mostrarPregunta();
+  }, 900);
+}
+
+function terminarNivel() {
+  question.textContent =
+    "OPERACIÓN COMPLETADA · " +
+    niveles[nivelActual].nombre;
+
+  progress.textContent =
+    "Resultado: " + puntos + " / " +
+    (preguntasPartida.length * 10);
+
+  options.innerHTML = "";
+
+  if (nivelActual < 3) {
+
+    if (nivelActual === nivelDesbloqueado) {
+      nivelDesbloqueado++;
+      localStorage.setItem(
+        "cartelTriviaUnlocked",
+        nivelDesbloqueado
+      );
+    }
+
+    actualizarNiveles();
+
+    result.textContent =
+      "NIVEL SUPERADO · SIGUIENTE NIVEL DESBLOQUEADO";
+
+    start.textContent = "CONTINUAR";
+  } else {
+
+    result.textContent =
+      "MISIÓN COMPLETADA · RANGO ÉLITE";
+
+    start.textContent = "JUGAR DE NUEVO";
+  }
+}
+
+levels.forEach((btn, i) => {
+  btn.addEventListener("click", () => {
+
+    if (i > nivelDesbloqueado) return;
+
+    nivelActual = i;
+    actualizarNiveles();
+    iniciarNivel();
+  });
+});
+
+start.addEventListener("click", () => {
+
+  if (
+    nivelActual < nivelDesbloqueado &&
+    preguntaActual >= preguntasPartida.length
+  ) {
+    iniciarNivel();
+    return;
+  }
+
+  iniciarNivel();
+});
+
+actualizarNiveles();
+
+})();
+</script>
+
+<script id="quien-soy-script">
+(() => {
+
+const casos = [
+
+  {
+    nombre:"RECLUTA",
+    casos:[
+      {
+        pistas:[
+          "Soy el integrante mayor de BTS.",
+          "Mi apodo incluye una referencia mundial a mi apariencia.",
+          "También tengo una canción llamada The Astronaut."
+        ],
+        opciones:["Jin","RM","Jimin","Jungkook"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy el líder del grupo.",
+          "Mi nombre real es Kim Namjoon.",
+          "Mi álbum Indigo pertenece a mi carrera en solitario."
+        ],
+        opciones:["RM","SUGA","J-Hope","V"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy conocido por mi energía en el escenario.",
+          "Mi nombre real es Jung Hoseok.",
+          "Mi álbum en solitario incluye Hope World."
+        ],
+        opciones:["J-Hope","Jimin","Jin","V"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy uno de los integrantes de la línea vocal.",
+          "Mi nombre real es Park Jimin.",
+          "Lancé el álbum FACE."
+        ],
+        opciones:["Jimin","V","Jungkook","Jin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy el maknae.",
+          "Nací en Busan.",
+          "Lancé el álbum GOLDEN."
+        ],
+        opciones:["Jungkook","Jimin","V","RM"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi nombre real es Min Yoongi.",
+          "Soy productor y rapero.",
+          "Mi nombre artístico es SUGA."
+        ],
+        opciones:["SUGA","RM","J-Hope","Jin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi nombre real es Kim Taehyung.",
+          "Mi nombre artístico tiene una sola letra.",
+          "Lancé el álbum Layover."
+        ],
+        opciones:["V","Jin","Jimin","Jungkook"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy conocido por mi voz grave.",
+          "Mi nombre real es Kim Seokjin.",
+          "Soy el mayor del grupo."
+        ],
+        opciones:["Jin","V","RM","SUGA"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy conocido por mi liderazgo.",
+          "Soy rapero.",
+          "Mi nombre artístico anteriormente estuvo relacionado con Rap Monster."
+        ],
+        opciones:["RM","J-Hope","SUGA","Jungkook"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi nombre empieza con Jung.",
+          "Soy el integrante más joven.",
+          "Mi álbum GOLDEN fue lanzado en 2023."
+        ],
+        opciones:["Jungkook","J-Hope","Jimin","V"],
+        correcta:0
+      }
+    ]
+  },
+
+  {
+    nombre:"AGENTE",
+    casos:[
+      {
+        pistas:[
+          "Mi nombre real es Kim Taehyung.",
+          "Nací en Daegu.",
+          "Mi álbum solista se llama Layover."
+        ],
+        opciones:["V","Jin","Jimin","RM"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum D-DAY pertenece a mi carrera como solista.",
+          "Soy rapero y productor.",
+          "Mi nombre real es Min Yoongi."
+        ],
+        opciones:["SUGA","RM","J-Hope","Jungkook"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum FACE fue lanzado en 2023.",
+          "Soy parte de la línea vocal.",
+          "Mi nombre real es Park Jimin."
+        ],
+        opciones:["Jimin","V","Jungkook","Jin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum Jack In The Box fue lanzado en 2022.",
+          "Mi nombre real es Jung Hoseok.",
+          "Soy rapero y bailarín."
+        ],
+        opciones:["J-Hope","SUGA","RM","Jimin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum Indigo fue lanzado en 2022.",
+          "Soy el líder de BTS.",
+          "Mi nombre real es Kim Namjoon."
+        ],
+        opciones:["RM","SUGA","Jin","V"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Lancé The Astronaut.",
+          "Soy el mayor de BTS.",
+          "Mi nombre real es Kim Seokjin."
+        ],
+        opciones:["Jin","V","Jungkook","Jimin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Lancé GOLDEN.",
+          "Soy el maknae.",
+          "También participé en canciones completamente en inglés."
+        ],
+        opciones:["Jungkook","Jimin","V","Jin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi nombre artístico es una sola letra.",
+          "Mi nombre real es Kim Taehyung.",
+          "Layover es mi álbum solista."
+        ],
+        opciones:["V","RM","Jin","SUGA"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum se llama FACE.",
+          "Soy de Busan.",
+          "Formo parte de la línea vocal."
+        ],
+        opciones:["Jimin","Jungkook","V","Jin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy rapero.",
+          "Mi álbum D-DAY fue lanzado bajo mi nombre artístico.",
+          "Mi nombre real contiene el apellido Min."
+        ],
+        opciones:["SUGA","RM","J-Hope","Jin"],
+        correcta:0
+      }
+    ]
+  },
+
+  {
+    nombre:"OPERATIVO",
+    casos:[
+      {
+        pistas:[
+          "Mi álbum solista se llama Indigo.",
+          "Mi trabajo explora distintas etapas de mi vida.",
+          "Soy el líder de BTS."
+        ],
+        opciones:["RM","SUGA","J-Hope","V"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum D-DAY forma parte de una trilogía relacionada con mis trabajos anteriores.",
+          "Soy conocido por producir y rapear.",
+          "También utilicé el nombre Agust D."
+        ],
+        opciones:["SUGA","RM","J-Hope","Jungkook"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum FACE habla de una etapa personal.",
+          "Mi nombre real es Park Jimin.",
+          "También participé en la canción Like Crazy."
+        ],
+        opciones:["Jimin","V","Jin","Jungkook"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum Jack In The Box marcó una nueva etapa en mi carrera.",
+          "Mi nombre real es Jung Hoseok.",
+          "Soy conocido por mi baile y energía."
+        ],
+        opciones:["J-Hope","Jimin","SUGA","RM"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum Layover tiene una estética muy diferente.",
+          "Mi nombre real es Kim Taehyung.",
+          "También soy conocido simplemente por una letra."
+        ],
+        opciones:["V","Jin","Jimin","Jungkook"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum GOLDEN está relacionado con mi carrera solista.",
+          "Soy el integrante más joven.",
+          "Mi nombre es Jeon Jungkook."
+        ],
+        opciones:["Jungkook","Jimin","V","Jin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum The Astronaut fue lanzado antes de mi servicio militar.",
+          "Soy el mayor.",
+          "Mi nombre real es Kim Seokjin."
+        ],
+        opciones:["Jin","RM","V","J-Hope"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy el líder de BTS.",
+          "Mi nombre real es Kim Namjoon.",
+          "Mi álbum Indigo fue mi primer álbum de estudio como solista."
+        ],
+        opciones:["RM","SUGA","Jin","J-Hope"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy integrante de la línea vocal.",
+          "Mi nombre real es Kim Taehyung.",
+          "Mi álbum solista se llama Layover."
+        ],
+        opciones:["V","Jimin","Jungkook","Jin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy rapero y productor.",
+          "Mi nombre real es Min Yoongi.",
+          "Mi carrera solista incluye los nombres SUGA y Agust D."
+        ],
+        opciones:["SUGA","RM","J-Hope","Jin"],
+        correcta:0
+      }
+    ]
+  },
+
+  {
+    nombre:"ÉLITE",
+    casos:[
+      {
+        pistas:[
+          "Mi identidad artística está relacionada con una sola letra.",
+          "Mi nombre real es Kim Taehyung.",
+          "Mi álbum Layover contiene canciones de estilo R&B y soul."
+        ],
+        opciones:["V","Jimin","Jin","RM"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi carrera solista incluye el nombre Agust D.",
+          "D-DAY cerró una trilogía de trabajos personales.",
+          "Mi nombre real es Min Yoongi."
+        ],
+        opciones:["SUGA","RM","J-Hope","Jungkook"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum Indigo fue lanzado en diciembre de 2022.",
+          "Soy el líder de BTS.",
+          "Mi nombre real es Kim Namjoon."
+        ],
+        opciones:["RM","Jin","V","J-Hope"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum FACE fue lanzado en marzo de 2023.",
+          "Mi canción Like Crazy llegó al número 1 del Billboard Hot 100.",
+          "Soy Park Jimin."
+        ],
+        opciones:["Jimin","Jungkook","V","Jin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum GOLDEN fue lanzado en noviembre de 2023.",
+          "Soy conocido como el maknae.",
+          "Mi nombre completo es Jeon Jungkook."
+        ],
+        opciones:["Jungkook","Jimin","V","J-Hope"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum Jack In The Box fue lanzado en 2022.",
+          "También participé en el proyecto Hope World.",
+          "Mi nombre real es Jung Hoseok."
+        ],
+        opciones:["J-Hope","SUGA","RM","Jin"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi álbum The Astronaut fue lanzado en 2022.",
+          "Soy el integrante mayor.",
+          "Mi nombre real es Kim Seokjin."
+        ],
+        opciones:["Jin","RM","V","Jungkook"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Soy el líder y uno de los raperos del grupo.",
+          "Mi nombre real es Kim Namjoon.",
+          "Mi álbum Indigo fue lanzado en 2022."
+        ],
+        opciones:["RM","SUGA","J-Hope","V"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi nombre real es Min Yoongi.",
+          "Soy conocido por mis habilidades de producción.",
+          "D-DAY pertenece a mi discografía solista."
+        ],
+        opciones:["SUGA","RM","J-Hope","Jungkook"],
+        correcta:0
+      },
+      {
+        pistas:[
+          "Mi nombre real es Park Jimin.",
+          "Nací en Busan.",
+          "Mi álbum FACE fue mi primer álbum de estudio en solitario."
+        ],
+        opciones:["Jimin","Jungkook","V","Jin"],
+        correcta:0
+      }
+    ]
+  }
+
+];
+
+const TOTAL_RONDAS = 5;
+
+let nivelActual = 0;
+let casosPartida = [];
+let ronda = 0;
+let puntos = 0;
+let respondiendo = false;
+
+let desbloqueado = parseInt(
+  localStorage.getItem("cartelQuienSoyUnlocked") || "0"
+);
+
+desbloqueado = Math.max(0, Math.min(3, desbloqueado));
+
+const levels = document.querySelectorAll(".qs-level");
+const status = document.getElementById("qs-status");
+const progress = document.getElementById("qs-progress");
+const pista = document.getElementById("qs-pista");
+const options = document.getElementById("qs-options");
+const score = document.getElementById("qs-score");
+const result = document.getElementById("qs-result");
+const start = document.getElementById("qs-start");
+
+function mezclar(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+function actualizarNiveles() {
+
+  levels.forEach((btn, i) => {
+
+    if (i <= desbloqueado) {
+      btn.classList.remove("locked");
+      btn.textContent = casos[i].nombre;
+    } else {
+      btn.classList.add("locked");
+      btn.textContent = casos[i].nombre + " 🔒";
+    }
+
+    btn.classList.toggle(
+      "active",
+      i === nivelActual
+    );
+  });
+}
+
+function iniciarNivel() {
+
+  casosPartida = mezclar(
+    casos[nivelActual].casos
+  ).slice(0, TOTAL_RONDAS);
+
+  ronda = 0;
+  puntos = 0;
+  respondiendo = false;
+
+  status.textContent =
+    "NIVEL: " + casos[nivelActual].nombre;
+
+  score.textContent = "PUNTOS: 0";
+  result.textContent = "";
+
+  start.textContent = "REINICIAR OPERACIÓN";
+
+  mostrarCaso();
+}
+
+function mostrarCaso() {
+
+  if (ronda >= casosPartida.length) {
+    terminarNivel();
+    return;
+  }
+
+  const caso = casosPartida[ronda];
+
+  progress.textContent =
+    "Caso " +
+    (ronda + 1) +
+    " de " +
+    casosPartida.length;
+
+  /*
+    Se muestra una pista inicialmente.
+    Cada 2 segundos se añade otra pista.
+  */
+
+  pista.textContent = caso.pistas[0];
+
+  options.innerHTML = "";
+  respondiendo = true;
+
+  caso.pistas.forEach((texto, index) => {
+
+    if (index === 0) return;
+
+    setTimeout(() => {
+
+      if (
+        respondiendo &&
+        ronda < casosPartida.length
+      ) {
+        pista.innerHTML +=
+          "<br><br>• " + texto;
+      }
+
+    }, index * 1800);
+  });
+
+  caso.opciones.forEach((opcion, indice) => {
+
+    const boton =
+      document.createElement("button");
+
+    boton.className = "qs-option";
+    boton.textContent = opcion;
+
+    boton.addEventListener(
+      "click",
+      () => responder(indice)
+    );
+
+    options.appendChild(boton);
+  });
+}
+
+function responder(indice) {
+
+  if (!respondiendo) return;
+
+  respondiendo = false;
+
+  const caso = casosPartida[ronda];
+
+  const botones =
+    options.querySelectorAll(".qs-option");
+
+  botones.forEach(
+    boton => boton.disabled = true
+  );
+
+  /*
+    Más puntos por acertar con pocas pistas.
+  */
+
+  let puntosGanados = 10;
+
+  if (pista.innerHTML.includes("<br><br>•")) {
+    puntosGanados = 5;
+  }
+
+  if (indice === caso.correcta) {
+
+    puntos += puntosGanados;
+
+    botones[indice]
+      .classList.add("correct");
+
+    result.textContent =
+      "+" + puntosGanados + " PUNTOS · IDENTIDAD CONFIRMADA";
+
+  } else {
+
+    botones[indice]
+      .classList.add("wrong");
+
+    botones[caso.correcta]
+      .classList.add("correct");
+
+    result.textContent =
+      "IDENTIDAD INCORRECTA";
+  }
+
+  score.textContent =
+    "PUNTOS: " + puntos;
+
+  setTimeout(() => {
+
+    ronda++;
+    result.textContent = "";
+
+    mostrarCaso();
+
+  }, 1000);
+}
+
+function terminarNivel() {
+
+  pista.textContent =
+    "EXPEDIENTE CERRADO · " +
+    casos[nivelActual].nombre;
+
+  progress.textContent =
+    "Resultado final: " +
+    puntos +
+    " puntos";
+
+  options.innerHTML = "";
+
+  if (nivelActual < 3) {
+
+    if (nivelActual === desbloqueado) {
+
+      desbloqueado++;
+
+      localStorage.setItem(
+        "cartelQuienSoyUnlocked",
+        desbloqueado
+      );
+    }
+
+    actualizarNiveles();
+
+    result.textContent =
+      "NIVEL SUPERADO · SIGUIENTE EXPEDIENTE DESBLOQUEADO";
+
+    start.textContent =
+      "CONTINUAR";
+  } else {
+
+    result.textContent =
+      "MISIÓN COMPLETADA · AGENTE DE ÉLITE";
+
+    start.textContent =
+      "JUGAR DE NUEVO";
+  }
+}
+
+levels.forEach((btn, i) => {
+
+  btn.addEventListener(
+    "click",
+    () => {
+
+      if (i > desbloqueado) return;
+
+      nivelActual = i;
+
+      actualizarNiveles();
+
+      iniciarNivel();
+    }
+  );
+});
+
+start.addEventListener(
+  "click",
+  iniciarNivel
+);
+
+actualizarNiveles();
+
+})();
+</script>
+
+<script id="ranking-script">
+(() => {
+
+const STORAGE_KEY = "cartelRanking";
+
+let ranking = [];
+
+try {
+  ranking = JSON.parse(
+    localStorage.getItem(STORAGE_KEY) || "[]"
+  );
+} catch {
+  ranking = [];
+}
+
+const nameInput =
+  document.getElementById("rank-name");
+
+const pointsInput =
+  document.getElementById("rank-points");
+
+const addButton =
+  document.getElementById("rank-add");
+
+const list =
+  document.getElementById("ranking-list");
+
+const empty =
+  document.getElementById("ranking-empty");
+
+function guardar() {
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(ranking)
+  );
+}
+
+function ordenar() {
+
+  ranking.sort(
+    (a,b) => b.puntos - a.puntos
+  );
+}
+
+function mostrar() {
+
+  ordenar();
+
+  list.innerHTML = "";
+
+  empty.style.display =
+    ranking.length ? "none" : "block";
+
+  ranking.forEach((agente, index) => {
+
+    const fila =
+      document.createElement("div");
+
+    fila.className = "ranking-row";
+
+    const posicion =
+      document.createElement("div");
+
+    posicion.className =
+      "ranking-position";
+
+    if (index === 0) {
+      posicion.textContent = "🥇";
+    } else if (index === 1) {
+      posicion.textContent = "🥈";
+    } else if (index === 2) {
+      posicion.textContent = "🥉";
+    } else {
+      posicion.textContent =
+        String(index + 1).padStart(2,"0");
+    }
+
+    const nombre =
+      document.createElement("div");
+
+    nombre.className =
+      "ranking-name";
+
+    nombre.textContent =
+      agente.nombre;
+
+    const puntos =
+      document.createElement("div");
+
+    puntos.className =
+      "ranking-points";
+
+    puntos.textContent =
+      agente.puntos + " pts";
+
+    const eliminar =
+      document.createElement("button");
+
+    eliminar.className =
+      "ranking-delete";
+
+    eliminar.textContent =
+      "ELIMINAR";
+
+    eliminar.addEventListener(
+      "click",
+      () => {
+
+        ranking.splice(index,1);
+
+        guardar();
+        mostrar();
+      }
+    );
+
+    fila.appendChild(posicion);
+    fila.appendChild(nombre);
+    fila.appendChild(puntos);
+    fila.appendChild(eliminar);
+
+    list.appendChild(fila);
+  });
+}
+
+addButton.addEventListener(
+  "click",
+  () => {
+
+    const nombre =
+      nameInput.value.trim();
+
+    const puntos =
+      parseInt(pointsInput.value || "0");
+
+    if (!nombre) {
+      alert("Escribe el nombre del participante.");
+      return;
+    }
+
+    if (puntos < 0) {
+      alert("Los puntos no pueden ser negativos.");
+      return;
+    }
+
+    const existente =
+      ranking.find(
+        agente =>
+          agente.nombre.toLowerCase() ===
+          nombre.toLowerCase()
+      );
+
+    if (existente) {
+
+      existente.puntos += puntos;
+
+    } else {
+
+      ranking.push({
+        nombre: nombre,
+        puntos: puntos
+      });
+    }
+
+    guardar();
+    mostrar();
+
+    nameInput.value = "";
+    pointsInput.value = "";
+  }
+);
+
+mostrar();
+
+})();
+</script>
+</body>
+</html>
+
