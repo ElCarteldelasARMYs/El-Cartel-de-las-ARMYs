@@ -201,7 +201,7 @@ footer {
 .music-button:hover {
   background: #6d45d9;
 }
-</style>
+ .admin-only{display:none!important;} .admin-only-actions,.rank-actions,.news-actions,.ranking-delete{display:none!important;} </style>
 
 <style>
 .ranking-box {
@@ -1009,11 +1009,11 @@ footer {
 </div>
 
   <div class="secret" style="margin-top:30px;">
-    <h3>✦ AÑADIR AL ARCHIVO</h3>
+    <div class="admin-only"><h3>✦ AÑADIR AL ARCHIVO</h3>
     <input id="music-title" type="text" placeholder="Nombre del álbum o canción">
     <input id="music-era" type="text" placeholder="Era o categoría">
     <textarea id="music-text" placeholder="Descripción"></textarea>
-    <button onclick="addMusic()">AÑADIR AL ARCHIVO</button>
+    <button onclick="addMusic()">AÑADIR AL ARCHIVO</button></div>
   </div>
 </section>
 
@@ -1096,7 +1096,7 @@ footer {
 
   <div class="ranking-box">
 
-    <div class="ranking-admin">
+    <div class="ranking-admin admin-only">
 
       <input
         id="rank-name"
@@ -1146,7 +1146,7 @@ footer {
 
   <div id="news-list" class="news-list"></div>
 
-  <div class="news-admin">
+  <div class="news-admin admin-only">
     <h3>Panel de comunicados</h3>
     <input id="news-title" placeholder="Título del comunicado">
     <textarea id="news-text" placeholder="Escribe el comunicado"></textarea>
@@ -1188,7 +1188,7 @@ footer {
     <h3>✦ PANEL DE ARCHIVO</h3>
     <input id="exp-title" type="text" placeholder="Título del expediente">
     <textarea id="exp-text" placeholder="Contenido del expediente"></textarea>
-    <button onclick="addExpediente()">PUBLICAR EXPEDIENTE</button>
+    <button onclick="addExpediente()">PUBLICAR EXPEDIENTE</button></div>
   </div>
 </section>
 
@@ -1539,7 +1539,7 @@ function showExpedientes() {
       <h3>${e.title}</h3>
       <span>EXPEDIENTE ARMY</span>
       <p>${e.text}</p>
-      <button onclick="deleteExpediente(${i})">ELIMINAR</button>
+      <button class="admin-only-actions" onclick="deleteExpediente(${i})">ELIMINAR</button>
     </div>
   `).join('');
 }
@@ -1585,7 +1585,7 @@ function showMusic() {
       <h3>${m.title}</h3>
       <span>${m.era}</span>
       <p>${m.text}</p>
-      <button onclick="deleteMusic(${i})">ELIMINAR</button>
+      <button class="admin-only-actions" onclick="deleteMusic(${i})">ELIMINAR</button>
     </div>
   `).join('');
 }
